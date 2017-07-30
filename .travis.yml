@@ -1,0 +1,15 @@
+language: bash
+before_install:
+  - sudo ./install.sh all
+  - sudo add-apt-repository ppa:duggan/bats --yes
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq bats
+  - sudo apt-get install -qq vlc
+  - sudo apt-get install -qq openssl
+  - cpanm Sparrow --sudo --notest -q
+  - sparrow index update
+  - sparrow plg install bash-snippets-interactive-test
+
+script:
+  - sparrow plg run bash-snippets-interactive-test --param dir=$PWD
+  - bats tests

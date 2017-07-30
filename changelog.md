@@ -2,6 +2,256 @@
 
 # Bash-Snippets Changelog
 
+## Version 1.16.1
+
+</div>
+
+### Changes
+* Changed install script for homebrew
+* Added the -r option to newton
+
+<div align="center">
+
+## Version 1.16.0
+
+</div>
+
+### Changes
+* Added cryptocurrency component
+* Added newton component
+* Changed WAN Call in geo
+
+<div align="center">
+
+## Version 1.15.2
+
+</div>
+
+### Bugfixes
+* Installer path was preventing install
+
+<div align="center">
+
+## Version 1.15.1
+
+</div>
+
+
+### Changes
+* Added --prefix option to installer for homebrew correctly
+
+<div align="center">
+
+## Version 1.15.0
+
+</div>
+
+### Changes
+* Added -d option to movies
+* Updating extra tools if installed in main update pipeline
+
+<div align="center">
+
+## Version 1.14.3
+
+</div>
+
+### Changes
+* Adding new progress echos to cloudup
+
+### Bugfixes
+* Fixed bug in all tools using python for OSX where it would result caught in a segfault
+
+<div align="center">
+
+## Version 1.14.2
+
+</div>
+
+### Bugfixes
+* Fixing bug where cloudup was incorrectly deleting the remote bitbucket repository.
+
+<div align="center">
+
+## Version 1.14.1
+
+</div>
+
+### Bugfixes
+* Fixing issue in cloudup remote url was not set correctly if the ```-t``` option was not used
+* Fixing issue in cloudup where tags were causing conflicts, solved by deleting bitbucket repo first
+
+<div align="center">
+
+## Version 1.14.0
+
+</div>
+
+### Changes
+* Shebang changed to ```/usr/bin/env bash``` for more portability
+* Todo has more error checking for bad input
+* Added the ```-s``` option to cloudup which will prevent the backup of forked repositories
+* Added the ```-t``` option to cloudup to give the user the ability to create a unique repo or just update the old one
+
+<div align="center">
+
+## Version 1.13.2
+
+</div>
+
+
+### Changes
+* Updated installer not allow updates if bash-snippets was installed through package manager
+
+<div align="center">
+
+## Version 1.13.1
+
+</div>
+
+### Changes
+* Preventing bad input in ```todo -r```
+* Stocks was using unnecessary characters in the URL
+* Cloudup's private option now works
+* Cloudup's all option now looks to backup the first 10,000 repositories versus 100
+
+<div align="center">
+
+## Version 1.13.0
+
+</div>
+
+### Changes
+* Added todo component
+
+### Bugfixes
+* Forcing ytview to search in english
+
+<div align="center">
+
+## Version 1.12.0
+
+</div>
+
+### Changes
+* Added siteciphers component
+
+### Bugfixes
+* Crypt was still using only curl to get tags for update
+
+<div align="center">
+
+## Version 1.11.1
+
+</div>
+
+### Changes
+* Now supporting the use of proxies
+* Typo fixes
+* Adding IMDB rating to movies tool
+
+### Bugfixes
+* Suppressing ```source ~/.bash_profile``` error
+
+
+<div align="center">
+
+## Version 1.11.1
+
+</div>
+
+### Bugfixes
+* Fixed issue in ytview where it was playing wrong video
+* Fixed wget check in qrify
+
+<div align="center">
+
+## Version 1.11.0
+
+</div>
+
+### Changes
+* Adding manpage, view it with ```man bash-snippets```
+
+<div align="center">
+
+## Version 1.10.1
+
+</div>
+
+
+### Changes
+* Cloudup's -a option is now functional
+
+### Bugfixes
+* Cloudup only needs one temporary copy of the repository
+* Qrify had an issue where it couldn't handle more than one space
+* Cloudup now retains git history when it backs up to bitbucket
+* Fetch removed from qrify since it will not work
+
+
+<div align="center">
+
+## Version 1.10.0
+
+</div>
+
+### Changes
+* Added qrify component
+
+### Bugfixes
+* Bug in taste where the -i option was not working
+* Bug in all scripts that used python on OSX
+* Bug in taste script on OSX
+
+<div align="center">
+
+## Version 1.9.0
+
+</div>
+
+### Changes
+* Added cloudup component
+
+### Bugfixes
+* Fixing bug in ytview when search results are sparse
+
+
+<div align="center">
+
+## Version 1.8.0
+
+</div>
+
+### Changes
+* Added ytview component
+
+### Bugfixes
+* Using ```$@``` instead of ```$1 $2 $3...``` in all applicable scripts
+* Make call to python 2 explicit in all applicable scripts
+* Hiding the cheatsheet api help page from the user
+
+
+<div align="center">
+
+## Version 1.7.0
+
+</div>
+
+### Changes
+* Added cheat component
+
+<div align="center">
+
+## Version 1.6.0
+
+</div>
+
+### Changes
+* Added geo component
+
+<div align="center">
+
 ## Version 1.5.0
 
 </div>

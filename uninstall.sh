@@ -1,79 +1,35 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Author: Alexander Epstein https://github.com/alexanderepstein
+declare -a tools=(cheat cloudup crypt cryptocurrency currency geo movies newton qrify short siteciphers stocks taste todo weather ytview)
+all="1"
 
-if [[ -f  /usr/local/bin/currency ]];then
-  echo -n "Do you wish to uninstall currency [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd currency || exit 1
-    ./uninstall.sh || exit 1
-    cd .. || exit 1
+askUninstall()
+{
+  if [[ -f  /usr/local/bin/$1 ]]; then
+    echo -n "Do you wish to uninstall $1 [Y/n]: "
+    read -r answer
+    if [[ "$answer" == [Yy] ]]; then
+      cd $1 || return 1
+      echo -n "Removing $1: "
+      rm -f /usr/local/bin/$1 > /dev/null 2>&1 || { echo "Failed" ; echo "Error removing file, try running uninstall script as sudo"; exit 1; }
+      echo "Success"
+      cd .. || return 1
+    else
+      all="0"
+    fi
+    unset answer
   fi
-  unset answer
-fi
+}
 
-if [[ -f  /usr/local/bin/stocks ]];then
-  echo -n "Do you wish to uninstall stocks [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd stocks || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
+removeManpage()
+{
+  rm -f /usr/local/man/man1/bash-snippets.1 2>&1 || { echo "Failed" ; echo "Error removing file, try running uninstall script as sudo"; exit 1; }
+}
 
-  fi
-  unset answer
-fi
+for tool in "${tools[@]}"; do
+  askUninstall $tool || exit 1
+done
 
-if [[ -f  /usr/local/bin/weather ]];then
-  echo -n "Do you wish to uninstall weather [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd weather || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
-
-  fi
-  unset answer
-fi
-
-if [[ -f  /usr/local/bin/crypt ]];then
-  echo -n "Do you wish to uninstall crypt [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd crypt || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
-
-  fi
-  unset answer
-fi
-
-if [[ -f  /usr/local/bin/movies ]];then
-  echo -n "Do you wish to uninstall movies [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd movies || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
-  fi
-fi
-
-if [[ -f  /usr/local/bin/taste ]];then
-  echo -n "Do you wish to uninstall movies [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd taste || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
-  fi
-fi
-
-if [[ -f  /usr/local/bin/short ]];then
-  echo -n "Do you wish to uninstall movies [Y/n]: "
-  read -r answer
-  if [[ "$answer" == "Y" || "$answer" == "y" ]] ;then
-    cd short || exit 1
-    ./uninstall.sh
-    cd .. || exit 1
-  fi
+if [[ $all == "1" ]]; then
+  removeManpage || exit 1
 fi
